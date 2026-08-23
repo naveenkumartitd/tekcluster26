@@ -1083,7 +1083,7 @@ function App() {
       ['14', 'National Level'],
       ['08', 'Paper Tracks'],
       ['02', 'Flagship Events'],
-      ['₹150', 'Registration'],
+      ['₹150', 'Per Head'],
     ],
     [],
   );
@@ -1402,7 +1402,7 @@ function App() {
                 <span className="register-flight">TAKE FLIGHT?</span>
               </h2>
               <div className="register-meta">
-                <p>₹150 PER HEAD</p>
+                <p>₹150 per head</p>
                 <p>MAXIMUM 3 PARTICIPANTS PER TEAM</p>
               </div>
               <a
