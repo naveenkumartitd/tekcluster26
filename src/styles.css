@@ -16,10 +16,13 @@
   --glow: 0 0 32px rgba(96, 165, 250, 0.3);
 }
 
-* { box-sizing: border-box; }
-html {
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  width: 100%;
+  max-width: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -27,7 +30,6 @@ body {
   background: linear-gradient(180deg, var(--bg) 0%, #080b1a 26%, var(--bg-midnight) 100%);
   color: var(--text);
   font-family: 'Barlow Condensed', sans-serif;
-  overflow-x: hidden;
 }
 section[id] {
   scroll-margin-top: 110px;
@@ -40,7 +42,11 @@ button:focus-visible {
   outline-offset: 3px;
 }
 button { font: inherit; }
-img { max-width: 100%; display: block; }
+img, svg, video { max-width: 100%; display: block; height: auto; }
+iframe, canvas { max-width: 100%; }
+.site-shell {
+  overflow-x: hidden;
+}
 
 .site-shell {
   position: relative;
@@ -464,6 +470,10 @@ img { max-width: 100%; display: block; }
 .brand-mark {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: visible;
   line-height: 0.8;
   text-transform: uppercase;
   text-shadow: 0 0 24px rgba(64, 127, 255, 0.45);
@@ -472,6 +482,9 @@ img { max-width: 100%; display: block; }
 .brand-small {
   display: block;
   margin-left: 0.25em;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   font-family: 'Orbitron', sans-serif;
   font-size: clamp(1.7rem, 3vw, 3.2rem);
   letter-spacing: 0.3em;
@@ -479,11 +492,17 @@ img { max-width: 100%; display: block; }
 
 .brand-large {
   display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   font-family: 'Orbitron', sans-serif;
   font-size: clamp(4rem, 9vw, 11rem);
   letter-spacing: 0.04em;
   -webkit-text-stroke: 2px rgba(110, 181, 255, 0.8);
   color: #eff6ff;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .brand-year {
@@ -1392,7 +1411,19 @@ img { max-width: 100%; display: block; }
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 767px) {
+  .site-header {
+    padding: 14px 16px;
+  }
+
+  .college-logo {
+    max-width: calc(100% - 56px);
+  }
+
+  .college-logo-text {
+    display: none;
+  }
+
   .site-header nav {
     display: none;
     position: absolute;
@@ -1404,6 +1435,7 @@ img { max-width: 100%; display: block; }
     padding: 8px 0 0;
     border-bottom: 1px solid rgba(122, 170, 255, 0.18);
     background: rgba(3, 8, 17, 0.96);
+    z-index: 60;
   }
 
   .site-header nav.open {
@@ -1418,6 +1450,140 @@ img { max-width: 100%; display: block; }
   .menu-toggle {
     display: grid;
     place-items: center;
+  }
+
+  .hero {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+    padding: 52px 16px 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .eyebrow,
+  .section-kicker {
+    letter-spacing: 0.12em;
+    font-size: 0.62rem;
+  }
+
+  .institution,
+  .department {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .institution {
+    font-size: clamp(0.72rem, 3vw, 0.95rem);
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+  }
+
+  .department {
+    font-size: clamp(0.62rem, 2.4vw, 0.8rem);
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min(92vw, 420px);
+    max-width: 100%;
+    height: auto;
+    margin: 18px auto 10px;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .eagle-glow {
+    width: min(82vw, 360px);
+    height: min(34vw, 150px);
+    background: radial-gradient(ellipse at center, rgba(60, 100, 255, 0.30) 0%, rgba(90, 45, 200, 0.14) 35%, transparent 72%);
+    filter: blur(20px);
+  }
+
+  .hero-eagle-image {
+    width: min(100%, 360px);
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .brand-mark {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .brand-small {
+    display: block;
+    margin-left: 0;
+    letter-spacing: 0.12em;
+    font-size: clamp(1rem, 4vw, 1.6rem);
+  }
+
+  .brand-large {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    font-size: clamp(2.2rem, 11vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    -webkit-text-stroke: 1px rgba(110, 181, 255, 0.8);
+  }
+
+  .tagline {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+    font-size: clamp(0.48rem, 2.2vw, 0.72rem);
+    letter-spacing: 0.12em;
+  }
+
+  .date-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 260px);
+    margin: 18px auto 22px;
+    gap: 10px;
+    padding: 10px 18px;
+    transform: none;
+    box-sizing: border-box;
+  }
+
+  .date-pill .day {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn {
+    width: min(100%, 320px);
   }
 
   .stats-grid,
@@ -1437,122 +1603,12 @@ img { max-width: 100%; display: block; }
     justify-self: start;
   }
 
-  .hero {
-    min-height: 640px;
-  }
-
-  .hero-visual {
-    width: min(620px, 92vw);
-    height: 180px;
-    margin-top: 18px;
-    overflow: hidden;
-  }
-
-  .eyebrow,
-  .section-kicker {
-    letter-spacing: 0.12em;
-    font-size: 0.62rem;
-  }
-
-  .brand-small {
-    letter-spacing: 0.18em;
-  }
-
   .footer {
     flex-direction: column;
   }
 
   .footer-right {
     text-align: left;
-  }
-}
-
-@media (max-width: 650px) {
-  .site-header {
-    padding-inline: 16px;
-  }
-
-  .college-logo-text {
-    display: none;
-  }
-
-  .hero {
-    min-height: 620px;
-    padding-top: 54px;
-  }
-
-  .tagline {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-  }
-
-  .topic-grid,
-  .countdown-grid,
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .brand-small {
-    margin-left: 0;
-    letter-spacing: 0.12em;
-  }
-
-  .brand-large {
-    -webkit-text-stroke: 1px rgba(110, 181, 255, 0.8);
-    letter-spacing: 0.02em;
-  }
-
-  .section {
-    padding-top: 84px;
-  }
-
-  .date-pill {
-    gap: 12px;
-    padding: 10px 18px;
-    transform: scale(0.92);
-  }
-
-  .date-pill .day {
-    font-size: 2.2rem;
-  }
-
-  .countdown-box {
-    min-height: 120px;
-  }
-
-  .hero-visual {
-    width: min(540px, 96vw);
-    height: 120px;
-    margin: 18px auto 12px;
-    overflow: hidden;
-  }
-
-  .hero-eagle-image {
-    width: min(420px, 100%);
-    max-width: 100%;
-    transform: none;
-  }
-
-  .institution {
-    letter-spacing: 0.06em;
-    line-height: 1.4;
-  }
-
-  .department {
-    letter-spacing: 0.1em;
-    line-height: 1.5;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
   }
 }
 
@@ -1565,22 +1621,20 @@ img { max-width: 100%; display: block; }
   .section-kicker {
     padding: 8px 12px;
     letter-spacing: 0.08em;
+    white-space: normal;
   }
 
   .brand-large {
-    font-size: clamp(2.8rem, 20vw, 4.3rem);
+    font-size: clamp(2rem, 15vw, 3rem);
   }
 
-  .brand-small {
-    font-size: 1.1rem;
+  .tagline {
+    gap: 6px;
+    letter-spacing: 0.09em;
   }
 
-  .date-pill b {
-    font-size: 0.72rem;
-  }
-
-  .date-pill small {
-    letter-spacing: 0.14em;
+  .register-card {
+    padding: 20px 16px;
   }
 }
 
