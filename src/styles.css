@@ -1226,17 +1226,42 @@ iframe, canvas { max-width: 100%; }
   font-size: 1.02rem;
 }
 
+.register-section {
+  width: 100%;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-inline: 32px;
+  box-sizing: border-box;
+}
+
 .register-card {
   display: grid;
-  grid-template-columns: 1.45fr 0.8fr;
-  gap: 26px;
-  margin-top: 36px;
-  padding: clamp(26px, 4vw, 52px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 4vw, 60px);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 56px);
   border: 1px solid rgba(106, 150, 255, 0.38);
   background:
     radial-gradient(circle at 90% 20%, rgba(45, 86, 191, 0.2), transparent 26%),
     linear-gradient(135deg, rgba(15, 28, 54, 0.96), rgba(5, 9, 18, 0.97));
   box-shadow: 0 0 42px rgba(27, 73, 161, 0.14);
+  box-sizing: border-box;
+}
+
+.register-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
 }
 
 .register-content h2,
@@ -1246,8 +1271,10 @@ iframe, canvas { max-width: 100%; }
   gap: 8px;
   font-family: 'Orbitron', sans-serif;
   line-height: 0.9;
-  font-size: clamp(2.7rem, 6vw, 6rem);
+  font-size: clamp(2.5rem, 5vw, 6rem);
   text-transform: uppercase;
+  text-align: left;
+  max-width: 100%;
 }
 
 .register-ready {
@@ -1270,6 +1297,7 @@ iframe, canvas { max-width: 100%; }
   gap: 8px;
   margin: 22px 0 24px;
   max-width: 620px;
+  width: 100%;
 }
 
 .register-meta p {
@@ -1279,6 +1307,7 @@ iframe, canvas { max-width: 100%; }
   font-size: clamp(0.78rem, 1.2vw, 1.04rem);
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-align: left;
 }
 
 .small-note {
@@ -1288,27 +1317,33 @@ iframe, canvas { max-width: 100%; }
 }
 
 .qr-placeholder {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
-  width: min(250px, 42vw);
-  padding: 22px 18px 18px;
+  width: 100%;
+  max-width: 340px;
+  min-height: 100%;
+  padding: 24px 20px;
   border: 1px dashed rgba(112, 165, 255, 0.35);
   background: rgba(1, 7, 17, 0.48);
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .qr-image {
   display: block;
-  width: min(200px, 100%);
-  height: min(200px, 100%);
-  max-width: 200px;
-  max-height: 200px;
+  width: clamp(190px, 24vw, 250px);
+  max-width: 100%;
+  height: auto;
   aspect-ratio: 1;
   object-fit: contain;
   background: rgba(255, 255, 255, 0.95);
   padding: 10px;
   border: 1px solid rgba(120, 169, 255, 0.26);
   box-shadow: 0 0 18px rgba(96, 165, 250, 0.18);
+  margin: 0 auto;
 }
 
 .qr-placeholder > span {
@@ -1317,6 +1352,7 @@ iframe, canvas { max-width: 100%; }
   font-size: 0.64rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .footer {
@@ -1387,13 +1423,11 @@ iframe, canvas { max-width: 100%; }
   .faq-grid,
   .dates-grid,
   .countdown-grid,
-  .register-card,
   .about-grid,
   .split-header {
     grid-template-columns: 1fr 1fr;
   }
 
-  .register-card,
   .about-grid,
   .split-header {
     grid-template-columns: 1fr;
@@ -1404,6 +1438,26 @@ iframe, canvas { max-width: 100%; }
   .dates-grid,
   .countdown-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .register-container {
+    padding-inline: 24px;
+  }
+
+  .register-card {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
+    gap: 36px;
+    padding: clamp(24px, 3vw, 40px);
+  }
+
+  .qr-placeholder {
+    max-width: 300px;
+    padding: 22px 18px;
+  }
+
+  .register-content h2,
+  .register-headline {
+    font-size: clamp(2.2rem, 5vw, 4.7rem);
   }
 
   .hero {
@@ -1633,8 +1687,55 @@ iframe, canvas { max-width: 100%; }
     letter-spacing: 0.09em;
   }
 
+  .register-container {
+    width: calc(100% - 32px);
+    max-width: 520px;
+    padding-inline: 0;
+    margin: 0 auto;
+  }
+
   .register-card {
-    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+    max-width: 520px;
+    padding: 28px 20px 32px;
+    text-align: center;
+  }
+
+  .register-content {
+    align-items: center;
+    width: 100%;
+  }
+
+  .register-content h2,
+  .register-headline {
+    text-align: center;
+    font-size: clamp(2.3rem, 10vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .register-meta {
+    width: 100%;
+    max-width: 100%;
+    justify-items: center;
+  }
+
+  .register-meta p {
+    text-align: center;
+  }
+
+  .qr-placeholder {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .qr-image {
+    width: min(240px, 80vw);
   }
 }
 

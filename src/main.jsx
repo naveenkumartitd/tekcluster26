@@ -1393,31 +1393,33 @@ function App() {
           </div>
         </section>
 
-        <section className="section-pad section" id="register">
-          <div className="register-card">
-            <div className="register-content">
-              <div className="section-kicker">/ REGISTRATION</div>
-              <h2 className="register-headline">
-                <span className="register-ready">READY TO</span>
-                <span className="register-flight">TAKE FLIGHT?</span>
-              </h2>
-              <div className="register-meta">
-                <p>₹150 per head</p>
-                <p>MAXIMUM 3 PARTICIPANTS PER TEAM</p>
+        <section className="section-pad section register-section" id="register">
+          <div className="register-container">
+            <div className="register-card">
+              <div className="register-content">
+                <div className="section-kicker">/ REGISTRATION</div>
+                <h2 className="register-headline">
+                  <span className="register-ready">READY TO</span>
+                  <span className="register-flight">TAKE FLIGHT?</span>
+                </h2>
+                <div className="register-meta">
+                  <p>₹150 per head</p>
+                  <p>MAXIMUM 3 PARTICIPANTS PER TEAM</p>
+                </div>
+                <a
+                  className="btn btn-primary"
+                  href="https://forms.gle/pMZJ2vybyVSeRSD78"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  REGISTER NOW <span>→</span>
+                </a>
               </div>
-              <a
-                className="btn btn-primary"
-                href="https://forms.gle/pMZJ2vybyVSeRSD78"
-                target="_blank"
-                rel="noreferrer"
-              >
-                REGISTER NOW <span>→</span>
-              </a>
-            </div>
 
-            <div className="qr-placeholder" role="img" aria-label="Registration QR code">
-              <img src="/qr.jpeg" alt="Registration QR code" className="qr-image" />
-              <span>SCAN TO REGISTER</span>
+              <div className="qr-placeholder" role="img" aria-label="Registration QR code">
+                <img src="/qr.jpeg" alt="Registration QR code" className="qr-image" />
+                <span>SCAN TO REGISTER</span>
+              </div>
             </div>
           </div>
         </section>
