@@ -1175,8 +1175,12 @@ function App() {
               <span className="pulse-dot" /> 14TH NATIONAL LEVEL TECHNICAL SYMPOSIUM
             </div>
 
-            <p className="institution">KONGUNADU COLLEGE OF ENGINEERING AND TECHNOLOGY</p>
-            <p className="department">DEPARTMENT OF ARTIFICIAL INTELLIGENCE &amp; DATA SCIENCE</p>
+            <div className="department-badge" aria-label="Department of Artificial Intelligence and Data Science">
+              <div className="department-rule department-rule-left" aria-hidden="true" />
+              <span className="department-label">DEPARTMENT OF</span>
+              <div className="department-rule department-rule-right" aria-hidden="true" />
+              <span className="department-title">ARTIFICIAL INTELLIGENCE &amp; DATA SCIENCE</span>
+            </div>
 
             <div className="hero-visual" aria-hidden="true">
               <div className="eagle-glow" />
@@ -1451,14 +1455,14 @@ function Header({ menuOpen, setMenuOpen }) {
       >
         <img
           src="/college-logo.png"
-          alt="Kongunadu College of Engineering and Technology"
+          alt="Kongunadu College of Engineering and Technology (Autonomous)"
           className="college-logo-image"
         />
 
         <div className="college-logo-text">
           <strong>KONGUNADU</strong>
           <span>COLLEGE OF ENGINEERING</span>
-          <span>AND TECHNOLOGY</span>
+          <span>AND TECHNOLOGY (AUTONOMOUS)</span>
         </div>
       </a>
 
@@ -1507,8 +1511,8 @@ function Footer() {
     <footer className="footer">
       <div>
         <div className="section-kicker">/ CONTACT</div>
-        <a href="mailto:tekclusteraud2026@gmail.com" className="footer-email">
-          <h3>TEKCLUSTERAUD2026@GMAIL.COM</h3>
+        <a href="mailto:tekclusterad2026@gmail.com" className="footer-email">
+          <h3>TEKCLUSTERAD2026@GMAIL.COM</h3>
         </a>
       </div>
       <div className="footer-right">
@@ -1518,7 +1522,7 @@ function Footer() {
         <p>
           <a href="tel:+917395936932">Tharaneesh J · 7395936932</a>
         </p>
-        <p>Kongunadu College of Engineering and Technology · Trichy, Tamil Nadu</p>
+        <p>Kongunadu College of Engineering and Technology (Autonomous) · Thottiyam, Tamil Nadu</p>
       </div>
     </footer>
   );

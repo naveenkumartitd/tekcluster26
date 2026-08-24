@@ -283,6 +283,8 @@ iframe, canvas { max-width: 100%; }
   align-items: center;
   gap: 12px;
   min-width: 0;
+  max-width: 100%;
+  text-decoration: none;
 }
 
 .college-logo-image {
@@ -296,23 +298,28 @@ iframe, canvas { max-width: 100%; }
   background: transparent;
   box-shadow: none;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .college-logo-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  min-width: 0;
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1.1;
 }
 
 .college-logo-text strong {
   font-size: 0.86rem;
+  color: #edf4ff;
 }
 
 .college-logo-text span {
   font-size: 0.58rem;
-  color: var(--muted);
+  color: rgba(196, 214, 255, 0.8);
 }
 
 .site-header nav {
@@ -429,12 +436,60 @@ iframe, canvas { max-width: 100%; }
   text-transform: uppercase;
 }
 
-.department {
-  margin: 0;
-  color: #8eb9ff;
-  font-size: clamp(0.75rem, 1vw, 1.2rem);
-  letter-spacing: 0.2em;
+.department-badge {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  width: min(760px, 82vw);
+  margin: 8px auto 12px;
+  color: #dfeeff;
   text-transform: uppercase;
+  text-align: center;
+}
+
+.department-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(121, 170, 252, 0.76), transparent);
+  position: relative;
+}
+
+.department-rule::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: #8ab7ff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px rgba(138, 184, 255, 0.9);
+}
+
+.department-label {
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(0.5rem, 0.9vw, 0.72rem);
+  letter-spacing: 0.18em;
+  color: rgba(235, 241, 255, 0.9);
+  line-height: 1.4;
+}
+
+.department-title {
+  display: block;
+  width: max-content;
+  max-width: none;
+  margin: 6px auto 0;
+  grid-column: 1 / -1;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.55rem);
+  letter-spacing: 0.08em;
+  color: #a7d0ff;
+  text-shadow: 0 0 18px rgba(123, 170, 255, 0.18);
+  line-height: 1.1;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .hero-visual {
@@ -442,9 +497,9 @@ iframe, canvas { max-width: 100%; }
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 32px auto 18px;
+  margin: 12px auto 10px;
   width: min(780px, 88vw);
-  height: 230px;
+  height: 210px;
   filter: saturate(1.1) drop-shadow(0 0 18px rgba(96,165,250,0.18));
 }
 
@@ -1481,10 +1536,21 @@ iframe, canvas { max-width: 100%; }
 
   .college-logo {
     max-width: calc(100% - 56px);
+    gap: 10px;
   }
 
   .college-logo-text {
-    display: none;
+    display: flex;
+    min-width: 0;
+  }
+
+  .college-logo-text strong {
+    font-size: 0.66rem;
+  }
+
+  .college-logo-text span {
+    font-size: 0.46rem;
+    line-height: 1.2;
   }
 
   .site-header nav {
@@ -1538,24 +1604,25 @@ iframe, canvas { max-width: 100%; }
     font-size: 0.62rem;
   }
 
-  .institution,
-  .department {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  .department-badge {
+    width: min(100%, 540px);
+    gap: 7px;
+    margin: 6px auto 8px;
   }
 
-  .institution {
-    font-size: clamp(0.72rem, 3vw, 0.95rem);
+  .department-label {
+    letter-spacing: 0.15em;
+    font-size: clamp(0.48rem, 1.8vw, 0.64rem);
+  }
+
+  .department-title {
+    width: max-content;
+    max-width: calc(100vw - 24px);
+    margin-top: 4px;
+    font-size: clamp(0.56rem, 2.8vw, 0.9rem);
     letter-spacing: 0.08em;
-    line-height: 1.5;
-  }
-
-  .department {
-    font-size: clamp(0.62rem, 2.4vw, 0.8rem);
-    letter-spacing: 0.12em;
-    line-height: 1.5;
+    line-height: 1.1;
+    white-space: nowrap;
   }
 
   .hero-visual {
@@ -1566,7 +1633,7 @@ iframe, canvas { max-width: 100%; }
     width: min(92vw, 420px);
     max-width: 100%;
     height: auto;
-    margin: 18px auto 10px;
+    margin: 10px auto 8px;
     background: transparent;
     overflow: visible;
   }
