@@ -289,10 +289,13 @@ iframe, canvas { max-width: 100%; }
   width: 54px;
   height: 54px;
   object-fit: contain;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(86, 140, 255, 0.3);
-  box-shadow: 0 0 18px rgba(96,165,250,0.16);
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
 
 .college-logo-text {
@@ -491,8 +494,8 @@ iframe, canvas { max-width: 100%; }
 }
 
 .brand-large {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: auto;
   max-width: 100%;
   min-width: 0;
   font-family: 'Orbitron', sans-serif;
@@ -500,12 +503,18 @@ iframe, canvas { max-width: 100%; }
   letter-spacing: 0.04em;
   -webkit-text-stroke: 2px rgba(110, 181, 255, 0.8);
   color: #eff6ff;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  white-space: nowrap;
+  overflow: visible;
+  word-break: normal;
 }
 
 .brand-year {
+  position: relative;
+  top: 0;
+  display: inline;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
   color: #7bb1ff;
 }
 
@@ -1593,17 +1602,23 @@ iframe, canvas { max-width: 100%; }
   }
 
   .brand-large {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: auto;
     max-width: 100%;
     min-width: 0;
     font-size: clamp(2.2rem, 11vw, 5rem);
     line-height: 0.9;
     letter-spacing: 0.02em;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    white-space: nowrap;
+    overflow: visible;
+    word-break: normal;
     -webkit-text-stroke: 1px rgba(110, 181, 255, 0.8);
+  }
+
+  .brand-year {
+    white-space: nowrap;
+    position: relative;
+    top: 0;
   }
 
   .tagline {
@@ -1680,6 +1695,7 @@ iframe, canvas { max-width: 100%; }
 
   .brand-large {
     font-size: clamp(2rem, 15vw, 3rem);
+    white-space: nowrap;
   }
 
   .tagline {
